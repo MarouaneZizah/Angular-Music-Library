@@ -1,0 +1,23 @@
+
+.backgroundImg
+{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: 35vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.backgroundImg h1
+{
+  color: #fff;
+}
+
+.backgroundImg p
+{
+  color: #333;
+}

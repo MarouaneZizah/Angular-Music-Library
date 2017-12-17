@@ -1,0 +1,14 @@
+
+<h1>All Artists</h1>
+
+<hr>
+
+<div class="artistWrapper">
+	<div *ngFor="let artist of artists" (click)="onSelect(artist)" [class.selected]="artist === selectedArtist" class="artist">
+		<p>Name : {{artist.name | uppercase }}</p>
+		<p>Ref : {{artist.id}}</p>
+		<p>Genre : {{artist.genre}}</p>
+	</div>
+</div>
+
+<app-artist-detail [artist]="selectedArtist"> </app-artist-detail>
