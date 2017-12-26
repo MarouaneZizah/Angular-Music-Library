@@ -3,6 +3,7 @@
 
 <hr>
 
+<!--
 <div class="artistWrapper">
 	<div *ngFor="let artist of artists" (click)="onSelect(artist)" [class.selected]="artist === selectedArtist" class="artist">
 		<p>Name : {{artist.name | uppercase }}</p>
@@ -12,3 +13,23 @@
 </div>
 
 <app-artist-detail [artist]="selectedArtist"> </app-artist-detail>
+-->
+
+<div class="artistWrapper">
+  <div *ngFor="let artist of artists" [class.selected]="artist === selectedArtist" class="artist">
+
+    <a routerLink="/artist/{{artist.id}}">
+      <p>Name : {{artist.name | uppercase }}</p>
+      <p>Genre : {{artist.genre}}</p>
+    </a>
+
+    <button class="delete" title="delete artist"(click)="delete(artist)">x</button>
+
+  </div>
+</div>
+
+<div>
+  <label>Artist name: <input #artistName /> </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(artistName.value); artistName.value=''">Add</button>
+</div>

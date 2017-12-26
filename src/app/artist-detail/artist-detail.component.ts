@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Artist} from '../artist';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import {ArtistService} from '../artist.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-artist-detail',
@@ -10,9 +14,31 @@ export class ArtistDetailComponent implements OnInit {
 
   @Input() artist: Artist;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private artistService: ArtistService,
+    private location: Location
+  ) { }
 
-  ngOnInit() {
+  ngOnInit():void
+  {
+    this.getArtist();
+  }
+
+  getArtist(): void
+  {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.artistService.getArtist(id).subscribe( artist => this.artist = artist);
+  }
+
+  goBack(): void
+  {
+    this.location.back();
+  }
+
+  save():void{
+    this.artistService.updateArtist(this.artist).subscribe(() => this.goBack());
   }
 
 }

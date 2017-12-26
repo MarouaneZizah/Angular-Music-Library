@@ -12,7 +12,7 @@ export class ArtistsComponent implements OnInit {
 
   artists: Artist[];
 
-  selectedArtist: Artist;
+  //selectedArtist: Artist;
 
   constructor( private artistService: ArtistService ) { }
 
@@ -20,13 +20,26 @@ export class ArtistsComponent implements OnInit {
     this.getArtists();
   }
 
+  /*
   onSelect(artist: Artist): void
   {
     this.selectedArtist = artist;
   }
+  */
 
   getArtists(): void {
     this.artistService.getArtists().subscribe( artists => this.artists = artists );
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.artistService.addArtist({ name } as Artist).subscribe(artist => { this.artists.push(artist);  });
+  }
+
+  delete(artist: Artist): void {
+    this.artists = this.artists.filter(h => h !== artist);
+    this.artistService.deleteArtist(artist).subscribe();
   }
 
 }

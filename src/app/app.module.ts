@@ -8,17 +8,34 @@ import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 import { ArtistService } from './artist.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { HomePageComponent } from './home-page/home-page.component';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArtistsComponent,
     ArtistDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
+
   ],
   providers: [ ArtistService, MessageService ],
   bootstrap: [AppComponent]
