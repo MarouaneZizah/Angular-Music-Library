@@ -1,39 +1,34 @@
-<nav>
-	<div>
-		<span>{{title}}</span>
-	</div>
-	<div>
-		<span>POST ROCK</span>
-	</div>
-	<div class="search">
-		<input type="text" name="" placeholder="Search all music" id="">
-	</div>
-</nav>
+<div class="container">
 
-<div class="currentPlay">
-	<p>God Is An Astronaut</p>
-	<p>Infinite Horizons</p>
+  <div class="side">
 
-	<div class="player">
+    <nav>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/artists">Artists</a>
+      <a routerLink="/songs">Songs</a>
+      <a routerLink="/albums">Albums</a>
+      <a routerLink="/playlist">My Playlist</a>
+    </nav>
 
-	</div>
+    <div class="activity">
+      <app-messages></app-messages>
+    </div>
+
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
 
-<div class="contentWrapper">
-	<div class="sideNav">
-		<a routerLink="/home">Home Page</a>
-		<a routerLink="/artists">All Artists</a>
-	</div>
+<div class="player">
 
-	<div class="content">
-		<router-outlet></router-outlet>
-		<app-messages></app-messages>
-	</div>
-
-	<div class="activity">
-
-	</div>
 </div>
+
+
+
+
 
 
 

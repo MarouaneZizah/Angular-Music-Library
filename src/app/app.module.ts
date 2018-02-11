@@ -14,6 +14,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HttpClientModule }    from '@angular/common/http';
+import { AlbumsComponent } from './albums/albums.component';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { SongsComponent } from './songs/songs.component';
+import { SongService } from './song.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { HttpClientModule }    from '@angular/common/http';
     ArtistsComponent,
     ArtistDetailComponent,
     MessagesComponent,
-    HomePageComponent
+    HomePageComponent,
+    AlbumsComponent,
+    PlaylistComponent,
+    SongsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,7 @@ import { HttpClientModule }    from '@angular/common/http';
     )
 
   ],
-  providers: [ ArtistService, MessageService ],
+  providers: [ ArtistService, SongService, MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

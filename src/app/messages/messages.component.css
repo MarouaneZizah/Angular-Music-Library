@@ -1,0 +1,28 @@
+
+.logTitle
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.logTitle h2
+{
+  color: #585858;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.logTitle button
+{
+  padding: 3px 8px;
+  color: #777;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+hr
+{
+  margin: 18px 0px;
+}

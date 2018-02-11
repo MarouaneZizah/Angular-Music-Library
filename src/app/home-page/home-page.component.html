@@ -1,12 +1,38 @@
 
-<h1>Best Artists</h1>
+<div class="heading">
+    <h1>Shuflle</h1>
+</div>
 
-<hr>
 
-<div class="grid grid-pad">
-  <a *ngFor="let artist of artists" class="col-1-4" routerLink="/artist/{{artist.id}}">
-    <div class="module hero">
-      <h4>{{artist.name}}</h4>
-    </div>
-  </a>
+<div class="container">
+	<h2 class="title">Playlists</h2>
+</div>
+
+<div class="container">
+	<h2 class="title">Artists</h2>
+	<div class="ArtistGrid">
+		<a *ngFor="let artist of artists" routerLink="/artist/{{artist.id}}">
+			<div class="artist">
+        <img [src]='artist.Image' alt="">
+				<p>{{artist.name}}</p>
+			</div>
+		</a>
+	</div>
+</div>
+
+<div class="container chartRadio">
+	<div>
+		<h2 class="title">Shuflle top 10 Chart</h2>
+		<div class="chartGrid">
+			<div class="chart" *ngFor="let song of songs">
+				<p>{{song.title}}</p>
+				<p>{{song.artist}}</p>
+				<p>{{song.album}}</p>
+				<a routerLink="/song/{{song.id}}"></a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h2 class="title">Radio</h2>
+	</div>
 </div>
